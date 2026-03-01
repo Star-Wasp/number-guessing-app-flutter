@@ -2,16 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
-  static Color bgAccent = Color.fromARGB(255, 223, 206, 228);
-  static Color bgColor = Color.fromARGB(255, 198, 173, 206);
-  static Color appBarColor = Color.fromRGBO(216, 216, 216, 1);
-  static Color easyColor = Color.fromARGB(255, 2, 194, 162);
-  static Color easyAccent = Color.fromARGB(255, 2, 255, 213);
-  static Color normalColor = Color.fromARGB(255, 0, 132, 255);
-  static Color normalAccent = Color.fromARGB(255, 106, 183, 255);
-  static Color hardColor = Color.fromARGB(255, 139, 6, 6);
-  static Color hardAccent = Color.fromARGB(255, 255, 63, 63);
-  static Color textColor = Color.fromARGB(255, 0, 0, 0);
+  static Color bgAccent = Color(0xffE6CCB2);
+  static Color bgColor = Color(0xff9C6644);
+  static Color appBarColor = Color(0xffEDE0D4);
+  static Color buttonColor = Color(0xffB08968);
+  static Color textColor = Color(0xff7F5539);
 }
 
 ThemeData primaryTheme = ThemeData(

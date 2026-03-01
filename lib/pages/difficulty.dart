@@ -12,8 +12,6 @@ class Difficulty extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 233, 5, 77),
         title: Text("Number Guessing Game"),
       ),
       body: Padding(
@@ -25,30 +23,30 @@ class Difficulty extends StatelessWidget {
               height: 30,
             ),
             Topics(
-                text: "EASY",
-                page: EasyMode(),
-                color: const Color.fromARGB(255, 114, 253, 119)),
+              text: "EASY",
+              page: EasyMode(),
+            ),
             SizedBox(
               height: 30,
             ),
             Topics(
-                text: "NORMAL",
-                page: NormalMode(),
-                color: const Color.fromARGB(255, 98, 184, 255)),
+              text: "NORMAL",
+              page: NormalMode(),
+            ),
             SizedBox(
               height: 30,
             ),
             Topics(
-                text: "HARD",
-                page: HardMode(),
-                color: const Color.fromARGB(255, 255, 122, 113)),
+              text: "HARD",
+              page: HardMode(),
+            ),
             SizedBox(
               height: 150,
             ),
             Topics(
-                text: "BACK TO MENU",
-                page: Home(),
-                color: const Color.fromARGB(255, 0, 140, 255)),
+              text: "BACK TO MENU",
+              page: Home(),
+            ),
           ],
         ),
       ),

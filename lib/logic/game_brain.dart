@@ -112,14 +112,12 @@ class _GameBrainState extends State<GameBrain> {
           ),
         if (gameOver)
           Topics(
-            color: Colors.blue,
             text: 'Play again?',
             page: Difficulty(),
             clearStack: true,
           ),
         if (gameOver)
           Topics(
-            color: Colors.blue,
             text: 'Main Menu',
             page: Home(),
             clearStack: true,

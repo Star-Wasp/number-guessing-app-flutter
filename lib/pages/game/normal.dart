@@ -24,8 +24,6 @@ class _NormalModeState extends State<NormalMode> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 233, 5, 77),
         title: Text("Normal mode"),
       ),
       body: Padding(

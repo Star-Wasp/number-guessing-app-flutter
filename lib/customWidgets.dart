@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:num_guess/theme.dart';
 
 class Topics extends StatelessWidget {
   const Topics({
     super.key,
     required this.text,
     required this.page,
-    required this.color,
     this.clearStack = false,
   });
 
   final String text;
   final Widget page;
-  final Color color;
   final bool clearStack;
 
   @override
@@ -22,7 +21,7 @@ class Topics extends StatelessWidget {
         height: 40,
         width: 500,
         decoration: BoxDecoration(
-          color: color,
+          color: AppColors.buttonColor,
           border: Border.all(
             color: Colors.black,
           ),

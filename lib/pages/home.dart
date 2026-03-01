@@ -19,11 +19,11 @@ class Home extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            Topics(text: "START", page: Difficulty(), color: Colors.blue),
+            Topics(text: "START", page: Difficulty()),
             SizedBox(
               height: 30,
             ),
-            Topics(text: "EXIT", page: Scaffold(), color: Colors.red),
+            Topics(text: "EXIT", page: Scaffold()),
           ],
         ),
       ),
