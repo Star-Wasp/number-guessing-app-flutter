@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:num_guess/customWidgets.dart';
-import 'package:num_guess/pages/home.dart';
+import 'package:num_guess/pages/difficulty.dart';
 
 class GameBrain extends StatefulWidget {
   const GameBrain({
@@ -20,6 +20,8 @@ class _GameBrainState extends State<GameBrain> {
   late int number;
 
   late int lives;
+
+  bool gameOver = false;
 
   @override
   void initState() {
@@ -83,7 +85,7 @@ class _GameBrainState extends State<GameBrain> {
         SizedBox(
           height: 20,
         ),
-        if (lives > 0)
+        if (lives > 0 && !gameOver)
           TextField(
             keyboardType: TextInputType.number,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -93,6 +95,11 @@ class _GameBrainState extends State<GameBrain> {
                 guess = int.parse(value);
                 if (guess != number) {
                   lives--;
+                  if (lives <= 0) {
+                    gameOver = true;
+                  }
+                } else {
+                  gameOver = true;
                 }
                 myControler.clear();
               });
@@ -101,12 +108,12 @@ class _GameBrainState extends State<GameBrain> {
               border: OutlineInputBorder(),
               hintText: 'Enter your guess...',
             ),
-          )
-        else
+          ),
+        if (gameOver)
           Topics(
             color: Colors.blue,
             text: 'Play again?',
-            page: Home(),
+            page: Difficulty(),
           ),
         SizedBox(
           height: 10,
