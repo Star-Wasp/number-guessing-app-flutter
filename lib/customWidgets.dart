@@ -21,10 +21,7 @@ class Topics extends StatelessWidget {
         height: 40,
         width: 500,
         decoration: BoxDecoration(
-          color: AppColors.buttonColor,
-          border: Border.all(
-            color: Colors.black,
-          ),
+          border: Border.all(),
           borderRadius: BorderRadius.all(
             Radius.circular(50),
           ),

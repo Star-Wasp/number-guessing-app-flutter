@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:num_guess/customWidgets.dart';
 import 'package:num_guess/pages/difficulty.dart';
 import 'package:num_guess/pages/home.dart';
+import 'package:num_guess/theme.dart';
 
 class GameBrain extends StatefulWidget {
   const GameBrain({
@@ -52,19 +53,32 @@ class _GameBrainState extends State<GameBrain> {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('I\'m thinking of a number between 1 and 100'),
+        Text(
+          'I\'m thinking of a number\nbetween 1 and 100',
+          textAlign: TextAlign.center,
+        ),
         SizedBox(
           height: 10,
         ),
-        Text('What\'s your guess?'),
+        Text(
+          'What\'s your guess?',
+          textAlign: TextAlign.center,
+        ),
         SizedBox(
           height: 10,
         ),
         if (lives > 0)
-          Text('You have $lives lives left')
+          Text(
+            'You have $lives lives left',
+            textAlign: TextAlign.center,
+          )
         else
-          Text('Game over..\nThe number I was thinking of was: $number'),
+          Text(
+            'Game over..\nThe number I was thinking of was: $number',
+            textAlign: TextAlign.center,
+          ),
         SizedBox(
           height: 10,
         ),
@@ -72,7 +86,7 @@ class _GameBrainState extends State<GameBrain> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Your last guess: '),
-            Text('$guess'),
+            if (guess == null) Text('') else Text('$guess'),
           ],
         ),
         SizedBox(
@@ -106,6 +120,7 @@ class _GameBrainState extends State<GameBrain> {
               });
             },
             decoration: InputDecoration(
+              iconColor: AppColors.bgAccent,
               border: OutlineInputBorder(),
               hintText: 'Enter your guess...',
             ),

@@ -22,7 +22,7 @@ ThemeData primaryTheme = ThemeData(
     TextTheme(
       bodyMedium: TextStyle(
         color: AppColors.textColor,
-        fontSize: 16,
+        fontSize: 25,
         letterSpacing: 1,
         fontWeight: FontWeight.bold,
       ),
@@ -38,6 +38,12 @@ ThemeData primaryTheme = ThemeData(
         fontWeight: FontWeight.bold,
         letterSpacing: 2,
       ),
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      foregroundColor: AppColors.textColor,
+      backgroundColor: AppColors.buttonColor,
     ),
   ),
 );

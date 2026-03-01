@@ -15,7 +15,10 @@ class Home extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            Text("ARE YOU READY TO BEGIN?"),
+            Text(
+              "ARE YOU READY TO BEGIN?",
+              textAlign: TextAlign.center,
+            ),
             SizedBox(
               height: 30,
             ),
