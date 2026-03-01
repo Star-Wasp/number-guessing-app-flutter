@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:num_guess/customWidgets.dart';
 import 'package:num_guess/pages/difficulty.dart';
+import 'package:num_guess/pages/home.dart';
 
 class GameBrain extends StatefulWidget {
   const GameBrain({
@@ -114,6 +115,14 @@ class _GameBrainState extends State<GameBrain> {
             color: Colors.blue,
             text: 'Play again?',
             page: Difficulty(),
+            clearStack: true,
+          ),
+        if (gameOver)
+          Topics(
+            color: Colors.blue,
+            text: 'Main Menu',
+            page: Home(),
+            clearStack: true,
           ),
         SizedBox(
           height: 10,

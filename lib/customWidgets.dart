@@ -6,11 +6,13 @@ class Topics extends StatelessWidget {
     required this.text,
     required this.page,
     required this.color,
+    this.clearStack = false,
   });
 
   final String text;
   final Widget page;
   final Color color;
+  final bool clearStack;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +32,17 @@ class Topics extends StatelessWidget {
         ),
         child: TextButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => page),
-            );
+            if (!clearStack) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => page),
+              );
+            } else {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => page),
+                  (route) => false);
+            }
           },
           child: Text(
             text.toUpperCase(),

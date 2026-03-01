@@ -25,30 +25,3 @@ class _EasyModeState extends State<EasyMode> {
     );
   }
 }
-
-
-// Column(
-//           children: [
-//             Text("GOING EASY ON YOU"),
-//             SizedBox(
-//               height: 30,
-//             ),
-//             Text(guess),
-//             SizedBox(
-//               height: 30,
-//             ),
-//             TextField(
-//               controller: myControler,
-//               onSubmitted: (value) {
-//                 setState(() {
-//                   guess = value;
-//                   myControler.clear();
-//                 });
-//               },
-//               decoration: InputDecoration(
-//                 border: OutlineInputBorder(),
-//                 hintText: 'Enter your guess...',
-//               ),
-//             ),
-//           ],
-//         ),
