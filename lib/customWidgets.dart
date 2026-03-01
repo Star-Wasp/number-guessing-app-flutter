@@ -77,27 +77,8 @@ class _CheckAnswerState extends State<CheckAnswer> {
     }
   }
 
-  bool shouldDecreaseLives() {
-    if (widget.guess > widget.number || widget.guess < widget.number) {
-      decreaseLives = true;
-      return decreaseLives;
-    } else {
-      decreaseLives = false;
-      return decreaseLives;
-    }
-  }
-
-  int updateLives(int lives) {
-    if (decreaseLives) {
-      lives--;
-      return lives;
-    } else {
-      return lives;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Text(guessResult());
   }
 }

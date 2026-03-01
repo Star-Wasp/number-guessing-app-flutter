@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
+import 'package:num_guess/customWidgets.dart';
 
 class GameBrain extends StatefulWidget {
   const GameBrain({
@@ -85,6 +86,7 @@ class _GameBrainState extends State<GameBrain> {
             hintText: 'Enter your guess...',
           ),
         ),
+        if (guess != null) CheckAnswer(number: number, guess: guess!),
       ],
     );
   }
