@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
 import 'package:num_guess/customWidgets.dart';
+import 'package:num_guess/pages/home.dart';
 
 class GameBrain extends StatefulWidget {
   const GameBrain({
@@ -57,7 +58,10 @@ class _GameBrainState extends State<GameBrain> {
         SizedBox(
           height: 10,
         ),
-        Text('You have $lives lives left'),
+        if (lives > 0)
+          Text('You have $lives lives left')
+        else
+          Text('Game over..\nThe number I was thinking of was: $number'),
         SizedBox(
           height: 10,
         ),
@@ -65,38 +69,48 @@ class _GameBrainState extends State<GameBrain> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Your last guess: '),
-            Text('GUESS'),
+            Text('$guess'),
           ],
         ),
         SizedBox(
           height: 10,
         ),
-        TextField(
-          keyboardType: TextInputType.number,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          controller: myControler,
-          onSubmitted: (value) {
-            setState(() {
-              guess = int.parse(value);
-              if (guess != number) {
-                lives--;
-              }
-              myControler.clear();
-            });
-          },
-          decoration: InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Enter your guess...',
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        if (guess != null)
+        if (guess != null && lives > 0)
           CheckAnswer(
             number: number,
             guess: guess!,
           ),
+        SizedBox(
+          height: 20,
+        ),
+        if (lives > 0)
+          TextField(
+            keyboardType: TextInputType.number,
+            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            controller: myControler,
+            onSubmitted: (value) {
+              setState(() {
+                guess = int.parse(value);
+                if (guess != number) {
+                  lives--;
+                }
+                myControler.clear();
+              });
+            },
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Enter your guess...',
+            ),
+          )
+        else
+          Topics(
+            color: Colors.blue,
+            text: 'Play again?',
+            page: Home(),
+          ),
+        SizedBox(
+          height: 10,
+        ),
       ],
     );
   }
