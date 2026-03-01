@@ -43,3 +43,61 @@ class Topics extends StatelessWidget {
     );
   }
 }
+
+class CheckAnswer extends StatefulWidget {
+  const CheckAnswer({
+    super.key,
+    required this.number,
+    required this.guess,
+  });
+
+  final int number;
+  final int guess;
+
+  @override
+  State<CheckAnswer> createState() => _CheckAnswerState();
+}
+
+class _CheckAnswerState extends State<CheckAnswer> {
+  bool decreaseLives = false;
+
+  String guessResult() {
+    if (widget.guess == widget.number) {
+      String result = 'You win!';
+      return result;
+    } else if (widget.guess > widget.number) {
+      String result = 'That\'s too high!';
+      return result;
+    } else if (widget.guess < widget.number) {
+      String result = 'That\'s too low!';
+      return result;
+    } else {
+      String result = 'What was that, I didn\'t catch it..';
+      return result;
+    }
+  }
+
+  bool shouldDecreaseLives() {
+    if (widget.guess > widget.number || widget.guess < widget.number) {
+      decreaseLives = true;
+      return decreaseLives;
+    } else {
+      decreaseLives = false;
+      return decreaseLives;
+    }
+  }
+
+  int updateLives(int lives) {
+    if (decreaseLives) {
+      lives--;
+      return lives;
+    } else {
+      return lives;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}

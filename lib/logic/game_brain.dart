@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:flutter/services.dart';
 
 class GameBrain extends StatefulWidget {
   const GameBrain({
@@ -23,18 +24,18 @@ class _GameBrainState extends State<GameBrain> {
     super.initState();
     if (widget.id == 'easy') {
       lives = 10;
-      number = Random().nextInt(1) + 1;
+      number = Random().nextInt(100) + 1;
     } else if (widget.id == 'normal') {
       lives = 7;
-      number = Random().nextInt(1) + 1;
+      number = Random().nextInt(100) + 1;
     } else {
       lives = 5;
-      number = Random().nextInt(1) + 1;
+      number = Random().nextInt(100) + 1;
     }
   }
 
   TextEditingController myControler = TextEditingController();
-  String guess = "";
+  int? guess;
 
   @override
   void dispose() {
@@ -70,10 +71,12 @@ class _GameBrainState extends State<GameBrain> {
           height: 10,
         ),
         TextField(
+          keyboardType: TextInputType.number,
+          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           controller: myControler,
           onSubmitted: (value) {
             setState(() {
-              guess = value;
+              guess = int.parse(value);
               myControler.clear();
             });
           },
