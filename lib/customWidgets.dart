@@ -59,20 +59,16 @@ class CheckAnswer extends StatefulWidget {
 }
 
 class _CheckAnswerState extends State<CheckAnswer> {
-  bool decreaseLives = false;
-
   String guessResult() {
     if (widget.guess == widget.number) {
       String result = 'You win!';
       return result;
     } else if (widget.guess > widget.number) {
       String result = 'That\'s too high!';
-      return result;
-    } else if (widget.guess < widget.number) {
-      String result = 'That\'s too low!';
+
       return result;
     } else {
-      String result = 'What was that, I didn\'t catch it..';
+      String result = 'That\'s too low!';
       return result;
     }
   }

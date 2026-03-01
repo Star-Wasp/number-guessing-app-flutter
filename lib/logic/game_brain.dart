@@ -78,6 +78,9 @@ class _GameBrainState extends State<GameBrain> {
           onSubmitted: (value) {
             setState(() {
               guess = int.parse(value);
+              if (guess != number) {
+                lives--;
+              }
               myControler.clear();
             });
           },
@@ -86,7 +89,14 @@ class _GameBrainState extends State<GameBrain> {
             hintText: 'Enter your guess...',
           ),
         ),
-        if (guess != null) CheckAnswer(number: number, guess: guess!),
+        SizedBox(
+          height: 10,
+        ),
+        if (guess != null)
+          CheckAnswer(
+            number: number,
+            guess: guess!,
+          ),
       ],
     );
   }
